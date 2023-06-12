@@ -1,9 +1,10 @@
 import React from 'react'
 
 const Cart = () => {
+  
   return (
     <div>
-      this is cart page
+      This is caet component.
     </div>
   )
 }

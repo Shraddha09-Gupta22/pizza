@@ -1,7 +1,7 @@
 
 import Products from '../components/Products';
-
 function Home(){
+
     return(
         <>
         <div className='hero py-16'>
