@@ -8,12 +8,24 @@ import Cart from './pages/Cart';
 import Navigation from "./components/Navigation";
 import SingleProduct from './pages/SingleProduct';
 import { CartContext } from './CartContext';
+import { useEffect, useState } from 'react';
+import { getCart, storeCart } from './pages/helpers';
 
 function App(){
+     const [cart, setCart] = useState({});
+     useEffect(() => {
+          getCart().then(cart =>{
+               setCart(JSON.parse(cart));
+          });
+     }, []);
+
+     useEffect(() => {
+          storeCart(JSON.stringify(cart));
+     }, [cart]);
     return(
     //code in react to connect the single product page with the product page.
     <Router>
-       <CartContext.Provider value = {{name: 'shraddha'}}>
+       <CartContext.Provider value = {{cart, setCart }}>
        {/* <a href="/">Home</a>
        <a href="/About">About</a> */}
        <Navigation />
